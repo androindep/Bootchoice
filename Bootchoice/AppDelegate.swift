@@ -15,8 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet var window: NSWindow!
     
-    func orderFrontRegardless(){}
-    func makeMainWindow(){}
+
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -24,8 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.level = Int(CGWindowLevelForKey(.MainMenuWindowLevelKey))
         window.canBecomeVisibleWithoutLogin = true
         window.canHide = false
-        func orderFrontRegardless(){}
-        func makeMainWindow(){}
+
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
