@@ -1,10 +1,8 @@
 # Bootchoice
 
-![Screenshot](https://raw.githubusercontent.com/androindep/Bootchoice/master/bootchoice.jpg)
-
 In the spirit of BootPicker, Bootchoice is a login-window application purely for the purposes of supporting a way for end-users to easily access dual-boot configurations with Windows.
 
-Not dynamically configurable with multiple boot options--currently only has two static images, one for MacOS, one for Windows.
+Not dynamically configurable with multiple boot options--currently only has two static image buttons, one for MacOS, one for Windows.
 
 However, unlike BootPicker, this supports EFI and Legacy booting.
 
