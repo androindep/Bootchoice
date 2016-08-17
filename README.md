@@ -29,4 +29,9 @@ To effectively use this application with 10.11, the NVRAM protections of SIP mus
 
 The command for doing this is `csrutil enable --without nvram` which produces a scary message but is fine.
 
-![Screenshot](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo1.jpg)
+![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo1.jpg)
+![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo2.jpg)
+![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo3.jpg)
+![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo4.jpg)
+![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo5.jpg)
+
