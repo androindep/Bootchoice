@@ -1,5 +1,7 @@
 # Bootchoice
 
+![Screenshot](https://raw.githubusercontent.com/androindep/Bootchoice/master/bootchoice.jpg)
+
 In the spirit of BootPicker, Bootchoice is a login-window application purely for the purposes of supporting a way for end-users to easily access dual-boot configurations with Windows.
 
 Not dynamically configurable with multiple boot options--currently only has two static images, one for MacOS, one for Windows.
@@ -26,3 +28,5 @@ As of El Capitan, SIP prevents third-party programs from using the 'bless' comma
 To effectively use this application with 10.11, the NVRAM protections of SIP must be disabled. This can be done at install time with a script baked into an AutoDMG image, as a script task in a NetBoot imaging environment such as DeployStudio or Imagr, or manually from the recovery partition.
 
 The command for doing this is `csrutil enable --without nvram` which produces a scary message but is fine.
+
+![Screenshot](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo1.jpg)
