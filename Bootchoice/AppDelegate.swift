@@ -15,11 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet var window: NSWindow!
     
-
-    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-
+        window.makeKeyAndOrderFront(NSWindow)
+        window.orderFrontRegardless()
         window.level = Int(CGWindowLevelForKey(.MainMenuWindowLevelKey))
         window.canBecomeVisibleWithoutLogin = true
         window.canHide = false
