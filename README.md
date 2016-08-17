@@ -28,10 +28,3 @@ As of El Capitan, SIP prevents third-party programs from using the 'bless' comma
 To effectively use this application with 10.11, the NVRAM protections of SIP must be disabled. This can be done at install time with a script baked into an AutoDMG image, as a script task in a NetBoot imaging environment such as DeployStudio or Imagr, or manually from the recovery partition.
 
 The command for doing this is `csrutil enable --without nvram` which produces a scary message but is fine.
-
-![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo1.jpg)
-![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo2.jpg)
-![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo3.jpg)
-![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo4.jpg)
-![Photo](https://raw.githubusercontent.com/androindep/Bootchoice/master/bchoice-photo5.jpg)
-
