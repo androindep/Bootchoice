@@ -11,6 +11,8 @@
 		1C9C227D1D6363BD00B38154 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C227C1D6363BD00B38154 /* AppDelegate.swift */; };
 		1C9C227F1D6363BD00B38154 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9C227E1D6363BD00B38154 /* Assets.xcassets */; };
 		1C9C22821D6363BD00B38154 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C9C22801D6363BD00B38154 /* MainMenu.xib */; };
+		606897321D6EBA5F0026F7B0 /* setvals.sh in Resources */ = {isa = PBXBuildFile; fileRef = 606897311D6EBA5F0026F7B0 /* setvals.sh */; };
+		609EBC5E1D6E9DD80069AC56 /* init.sh in Resources */ = {isa = PBXBuildFile; fileRef = 609EBC5D1D6E9DD80069AC56 /* init.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		1C9C227E1D6363BD00B38154 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C9C22811D6363BD00B38154 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1C9C22831D6363BD00B38154 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		606897311D6EBA5F0026F7B0 /* setvals.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = setvals.sh; path = ../../setvals.sh; sourceTree = "<group>"; };
+		609EBC5D1D6E9DD80069AC56 /* init.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = init.sh; path = ../../init.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 		1C9C227B1D6363BD00B38154 /* Bootchoice */ = {
 			isa = PBXGroup;
 			children = (
+				606897311D6EBA5F0026F7B0 /* setvals.sh */,
+				609EBC5D1D6E9DD80069AC56 /* init.sh */,
 				1C9C227C1D6363BD00B38154 /* AppDelegate.swift */,
 				1C11A2281D63E0100025473F /* bootchoice.sh */,
 				1C9C227E1D6363BD00B38154 /* Assets.xcassets */,
@@ -119,8 +125,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				609EBC5E1D6E9DD80069AC56 /* init.sh in Resources */,
 				1C11A2291D63E0100025473F /* bootchoice.sh in Resources */,
 				1C9C227F1D6363BD00B38154 /* Assets.xcassets in Resources */,
+				606897321D6EBA5F0026F7B0 /* setvals.sh in Resources */,
 				1C9C22821D6363BD00B38154 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
