@@ -6,19 +6,14 @@ Not dynamically configurable with multiple boot options--currently only has two 
 
 However, unlike BootPicker, this supports EFI and Legacy booting.
 
-The application itself executes an internal bless script that pulls the boot partition and the boot styl(Legacy/EFI) from a .plist file and blesses the appropriate device.
+First, a script (init.sh) that detects the presence of a Windows installation runs, and kills the app if there is nothing detected. 
 
-A postinstall script in the install pkg takes care of setting the initial boot configuration in a .plist file, 
-detecting one out of 4 standard configurations for dual-booting MacOS and Windows. This includes support for Fusion Drives.
+Then, a script (setvals.sh) that detects the location of the Windows partition and the boot style(Legacy/EFI) and sets these values in bootchoice.plist runs before the window loads. 
 
-The supported Windows configurations are:
+When the Windows button is clicked, the application executes an internal bless script(bootchoice.sh) that pulls the boot partition and the boot style from a .plist file and blesses the appropriate device, and reboots the machine.
 
-* Legacy boot, Windows partition at disk0s4.
-* EFI boot from disk0s1, Windows partition at disk0s5(with system reserved partition at disk0s4)
-* Fusion Drive - Legacy boot, Windows partition at disk1s4
-* Fusion Drive - EFI boot from disk1s1, Windows partition at disk1s5(with system reserved partition at disk1s4)
-
-.plist can be modified to support non-standard boot drives if so desired.
+Bootchoice.plist can be modified to disable automatic detection of the Windows partition by setting "PartitionAutoDetection" to "FALSE"
+You can also manually specify the Windows partition by modifying the "WindowsPartition" key's string.
 
 **SIP/System Integrity Protection Compatibility Notes**
 As of El Capitan, SIP prevents third-party programs from using the 'bless' command for booting to another partition.
