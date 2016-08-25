@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WindowsPartition</key>
+	<string>/dev/disk0s4</string>
+	<key>Legacy</key>
+	<string>TRUE</string>
+	<key>PartitionAutoDetection</key>
+	<string>TRUE</string>
+</dict>
+</plist>
