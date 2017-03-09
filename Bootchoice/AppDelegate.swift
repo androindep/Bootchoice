@@ -16,33 +16,22 @@ import Cocoa
     
 class AppDelegate: NSObject, NSApplicationDelegate {
  
-    func runCommand(cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
+    func runCommand(_ cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
         
         var output : [String] = []
         var error : [String] = []
         
-        let task = NSTask()
+        let task = Process()
         task.launchPath = cmd
         task.arguments = args
         
-        let outpipe = NSPipe()
+        let outpipe = Pipe()
         task.standardOutput = outpipe
-        let errpipe = NSPipe()
+        let errpipe = Pipe()
         task.standardError = errpipe
         
         task.launch()
-        
-        let outdata = outpipe.fileHandleForReading.readDataToEndOfFile()
-        if var string = String.fromCString(UnsafePointer(outdata.bytes)) {
-            string = string.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
-            output = string.componentsSeparatedByString("\n")
-        }
-        
-        let errdata = errpipe.fileHandleForReading.readDataToEndOfFile()
-        if var string = String.fromCString(UnsafePointer(errdata.bytes)) {
-            string = string.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet())
-            error = string.componentsSeparatedByString("\n")
-        }
+
         
         task.waitUntilExit()
         let status = task.terminationStatus
@@ -50,14 +39,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return (output, error, status)
     }
     
-    func applicationWillFinishLaunching(notification: NSNotification) {
+    func applicationWillFinishLaunching(_ notification: Notification) {
         
         let (output, error, status) = runCommand("/Applications/Utilities/Bootchoice.app/Contents/Resources/init.sh")
         print("program exited with status \(status)")
         let initstatus = (status)
         if initstatus == 1 {
 
-            NSApplication.sharedApplication().terminate(self)
+            NSApplication.shared().terminate(self)
         }
         if output.count > 0 {
             print("program output:")
@@ -65,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if error.count > 0 {
 
-            NSApplication.sharedApplication().terminate(self)
+            NSApplication.shared().terminate(self)
         }
         
 
@@ -76,42 +65,51 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
     
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        NSApp.activate(ignoringOtherApps:true)
         
         let setscript = "/Applications/Utilities/Bootchoice.app/Contents/Resources/setvals.sh"
         
-        let settask = NSTask()
+        let settask = Process()
         settask.launchPath = "/bin/bash"
         settask.arguments = ["-c", setscript]
         settask.launch()
         settask.waitUntilExit()
         
-        window.makeKeyAndOrderFront(NSWindow)
+
+        window.makeKeyAndOrderFront(NSWindow.self)
         window.orderFrontRegardless()
-        window.level = Int(CGWindowLevelForKey(.MainMenuWindowLevelKey))
+        window.level = Int(CGWindowLevelForKey(.overlayWindow))
         window.canBecomeVisibleWithoutLogin = true
         window.canHide = false
 
+        if (self.window == nil){
+            window.setIsVisible(true)
+            window.update()
+            window.display()
+        }
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        
+        self.window?.close()
+        NSApplication.shared().terminate(self)
     }
     
 
-    @IBAction func MacOS(sender: NSButton) {
-        sender.highlighted = true
+    @IBAction func MacOS(_ sender: NSButton) {
+        sender.isHighlighted = true
         self.window?.close()
-        NSApplication.sharedApplication().terminate(self)
+        NSApplication.shared().terminate(self)
 
     }
-    @IBAction func Windows(sender: NSButton) {
+    @IBAction func Windows(_ sender: NSButton) {
         
         let choicescript = "/Applications/Utilities/Bootchoice.app/Contents/Resources/bootchoice.sh"
         
-        let choicetask = NSTask()
+        let choicetask = Process()
         choicetask.launchPath = "/bin/bash"
         choicetask.arguments = ["-c", choicescript]
         choicetask.launch()
