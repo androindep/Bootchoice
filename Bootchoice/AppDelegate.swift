@@ -68,8 +68,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        NSApp.activate(ignoringOtherApps:true)
-        
         let setscript = "/Applications/Utilities/Bootchoice.app/Contents/Resources/setvals.sh"
         
         let settask = Process()
@@ -85,6 +83,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.canBecomeVisibleWithoutLogin = true
         window.canHide = false
 
+        NSApp.activate(ignoringOtherApps:true)
+      
         if (self.window == nil){
             window.setIsVisible(true)
             window.update()
