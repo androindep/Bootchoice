@@ -6,7 +6,7 @@
 	<string>ca.ocadu.bootchoice</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Applications/Utilities/BootChoice.app/Contents/MacOS/BootChoice</string>
+		<string>/Applications/Utilities/BootChoice.app/Contents/Resources/delay_bootchoice.sh</string>
 	</array>
 	<key>LimitLoadToSessionType</key>
 	<string>LoginWindow</string>
