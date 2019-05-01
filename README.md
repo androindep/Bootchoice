@@ -3,18 +3,16 @@
 In the spirit of BootPicker, Bootchoice is a login-window application purely for the purposes of supporting a way for end-users to easily access dual-boot configurations with Windows.
 
 Not dynamically configurable with multiple boot options--currently only has two static image buttons, one for MacOS, one for Windows.
-
-However, unlike BootPicker, this supports EFI and Legacy booting.
-
+However, unlike BootPicker this supports EFI and Legacy booting.
 
 **SIP/System Integrity Protection Compatibility**
+
 As of El Capitan, SIP prevents third-party programs from using the 'bless' command for booting to another partition.
 
 To effectively use this application with modern versions of MacOS, the NVRAM protections of SIP must be disabled. This can be done at install time with a script baked into an AutoDMG image, as a script task in a NetBoot imaging environment such as DeployStudio or Imagr, or from the Recovery partition.
 
 To disable only the NVRAM protections but keep all the other security that SIP brings:
 The command for doing this is `csrutil enable --without nvram` which produces a scary message but is fine.
-
 
 **How it works**
 
@@ -32,12 +30,10 @@ Order of operations is:
 
 -If the Windows button is clicked, the application executes an internal bless script(bootchoice.sh) that pulls the boot partition and the boot style from bootchoice.plist, blesses the appropriate device, and reboots the machine.
 
-
 **Partition Detection**
 
 Bootchoice.plist can be modified to disable automatic detection of the Windows partition by setting "PartitionAutoDetection" to "<false/>"
 If doing this, you should manually specify the Windows partition by modifying the "WindowsPartition" key's string to point to the appropriate boot source, eg. "/dev/disk0s4". This isn't recommended as the autodetection script will usually handle it and if you are deploying this in a mixed computer environment it's likely the values for this won't be the same on all machines.
-
 
 **Uninstallation**
 
