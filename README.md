@@ -38,5 +38,7 @@ Order of operations is:
 Bootchoice.plist can be modified to disable automatic detection of the Windows partition by setting "PartitionAutoDetection" to "<false/>"
 If doing this, you should manually specify the Windows partition by modifying the "WindowsPartition" key's string to point to the appropriate boot source, eg. "/dev/disk0s4". This isn't recommended as the autodetection script will usually handle it and if you are deploying this in a mixed computer environment it's likely the values for this won't be the same on all machines.
 
+
 **Uninstallation**
+
 If you don't want Bootchoice on a computer anymore, you can run the `Uninstall.command` script from this repository. This script isn't included as part of the installer package.
