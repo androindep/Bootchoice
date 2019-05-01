@@ -18,8 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
  
     func runCommand(_ cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
         
-        var output : [String] = []
-        var error : [String] = []
+        let output : [String] = []
+        let error : [String] = []
         
         let task = Process()
         task.launchPath = cmd
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let initstatus = (status)
         if initstatus == 1 {
 
-            NSApplication.shared().terminate(self)
+            NSApplication.shared.terminate(self)
         }
         if output.count > 0 {
             print("program output:")
@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if error.count > 0 {
 
-            NSApplication.shared().terminate(self)
+            NSApplication.shared.terminate(self)
         }
         
 
@@ -79,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window.makeKeyAndOrderFront(NSWindow.self)
         window.orderFrontRegardless()
-        window.level = Int(CGWindowLevelForKey(.overlayWindow))
+        window.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.overlayWindow)))
         window.canBecomeVisibleWithoutLogin = true
         window.canHide = false
 
@@ -95,14 +95,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
         self.window?.close()
-        NSApplication.shared().terminate(self)
+        NSApplication.shared.terminate(self)
     }
     
 
     @IBAction func MacOS(_ sender: NSButton) {
         sender.isHighlighted = true
         self.window?.close()
-        NSApplication.shared().terminate(self)
+        NSApplication.shared.terminate(self)
 
     }
     @IBAction func Windows(_ sender: NSButton) {
